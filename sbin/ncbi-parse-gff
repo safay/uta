@@ -37,7 +37,6 @@ import collections
 import gzip
 import io
 import itertools
-import logging
 import logging.config
 import os
 import pprint
@@ -47,9 +46,6 @@ import sys
 
 import attr
 import prettytable
-
-import Bio.SeqIO
-from bioutils.digests import seq_md5
 
 from uta.formats.exonset import ExonSet, ExonSetWriter
 from uta.formats.txinfo import TxInfo, TxInfoWriter, TxInfoReader
@@ -66,7 +62,7 @@ class ExonAlignment(object):
     match_type = attr.ib()
     g_start = attr.ib(converter=int)
     g_end = attr.ib(converter=int)
-    score = attr.ib(converter=float)
+    score = attr.ib()
     strand = attr.ib()
     aln_id = attr.ib()
     tx_ac = attr.ib()
